@@ -17,8 +17,9 @@ gem 'pg'
 
 gem 'activerecord'
 
+gem 'bundler', '2.5.14'
 
-gem "tailwindcss-rails", "~> 2.7"
+gem "tailwindcss-rails"
 
 gem 'devise'
 
