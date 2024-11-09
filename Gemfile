@@ -35,6 +35,10 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+gem 'net-pop', '~> 0.1.2'
+gem 'net-protocol', '~> 0.1' # Adjust the version if needed
+
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
