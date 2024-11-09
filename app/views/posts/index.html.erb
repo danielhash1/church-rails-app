@@ -1,0 +1,57 @@
+<main class="flex-grow flex flex-col min-h-screen"> 
+    <!-- Blog/Post Section -->
+    <section class="py-16 bg-gray-50 flex-grow fade-in"> <!-- Added fade-in for section -->
+        <div class="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-8">Our Blog</h2>
+
+            <% if user_signed_in? %>
+                <div class="mb-8">
+                    <%= link_to 'Write a Post', new_post_path, class: 'transition duration-200 ease-in-out px-4 py-2 rounded-lg text-black bg-gray-300 hover:bg-teal-500' %>
+                </div>
+            <% end %>
+            
+            <div class="flex justify-center">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <% @posts.reverse.each do |post| %>
+                    <%= link_to post, class: "bg-gray-200 w-full block transition duration-200 ease-in-out rounded-xl cursor-pointer hover:shadow-lg blog-card", href: post_path(post) do %>
+                        <% if post.images.attached? %>
+                            <%= image_tag post.images.first, class: 'h-60 w-full object-cover rounded-t-xl' %>
+                        <% else %>
+                            <%= image_tag 'default-image.png', class: 'h-60 w-full object-cover rounded-t-xl', alt: 'Default Image' %>
+                        <% end %>
+                        
+                        <p class="mt-2 font-semibold text-md"><%= post.title %></p>
+                        <p class="text-xs text-gray-500"><%= post.created_at.strftime("%B %d, %Y") %></p> <!-- Дата -->
+                        <p class="text-sm mt-3 text-gray-600 pb-3 px-3 overflow-hidden"><%= post.description.truncate(80) %></p> <!-- Описание с фиксированной высотой -->
+                    <% end %>
+                <% end %>
+                
+                </div>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+<!-- Footer Section -->
+<footer class="footer-bg bg-gray-300 py-10 mt-auto fade-in fade-in-delay-2">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-4">
+            <h2 class="text-xl font-bold">Ethiopian Evangelical Church Bonn</h2>
+        </div>
+        <div class="flex gap-5 justify-center mb-4">
+            <a href="#" class="social-icon">
+                <i class="size-10 fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon">
+                <i class="size-10 fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon">
+                <i class="size-10 fab fa-instagram"></i>
+            </a>
+        </div>
+        <div class="text-center">
+            <p class="font-light">&copy; 2024 Ethiopian Evangelical Church Bonn. All rights reserved.</p>
+        </div>
+    </div>
+</footer>

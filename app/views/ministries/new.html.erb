@@ -1,0 +1,49 @@
+<div>
+  <h2 class="text-3xl font-bold my-8 text-center">
+    <i class="fa-solid fa-building"></i> Create a New Ministry
+  </h2>
+
+  <%= form_with model: @ministry, local: true, class: "max-w-lg mx-auto p-6 bg-white rounded-2xl shadow-md mt-4" do |form| %>
+    <% if @ministry.errors.any? %>
+      <div id="error_explanation" class="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
+        <h2 class="font-semibold"><%= pluralize(@ministry.errors.count, "error") %> prohibited this ministry from being saved:</h2>
+        <ul class="list-disc list-inside">
+          <% @ministry.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="mb-4">
+      <%= form.label :name, "Ministry Name", class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= form.text_field :name, required: true, class: "shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :description, "Description", class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= form.text_area :description, required: true, class: "shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", rows: 5 %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :image, "Upload Image", class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= form.file_field :image, required: false, class: "shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+    </div>
+  
+
+    <!-- New Schedule Field -->
+    <div class="mb-4">
+      <%= form.label :schedule, "Schedule", class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= form.text_area :schedule, required: true, class: "shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", rows: 3 %>
+    </div>
+
+    <div class="hidden">
+      <%= form.hidden_field :created_at, value: Time.current %>
+      <%= form.hidden_field :updated_at, value: Time.current %>
+    </div>
+
+    <div class="flex items-center justify-center">
+      <%= form.submit "Create Ministry", class: "bg-blue-500 cursor-pointer hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+    </div>
+  <% end %>
+</div>

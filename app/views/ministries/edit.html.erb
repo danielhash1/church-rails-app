@@ -1,0 +1,46 @@
+<%# app/views/ministries/edit.html.erb %>
+
+<%= link_to 'Back', ministries_path, class: 'text-blue-500' %>
+
+<h2 class="text-3xl font-bold mb-8 text-center">Edit Ministry</h2>
+
+<%= form_with(model: @ministry, local: true) do |form| %>
+    <% if @ministry.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@ministry.errors.count, "error") %> prohibited this ministry from being saved:</h2>
+
+            <ul>
+            <% @ministry.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <div class="mb-4">
+        <%= form.label :name, class: "block font-bold mb-2" %>
+        <%= form.text_field :name, class: "border rounded-lg w-full p-2" %>
+    </div>
+
+    <div class="mb-4">
+        <%= form.label :description, class: "block font-bold mb-2" %>
+        <%= form.text_area :description, class: "border rounded-lg w-full p-2" %>
+    </div>
+
+    <div class="mb-4">
+        <%= form.label :schedule, class: "block font-bold mb-2" %>
+        <%= form.text_area :schedule, class: "border rounded-lg w-full p-2" %>
+    </div>
+
+    <div class="mb-4">
+        <%= form.label :image, "Upload New Image", class: "block font-bold mb-2" %>
+        <%= form.file_field :image, class: "border rounded-lg w-full p-2" %>
+    </div>
+
+
+    <div class="mb-4">
+        <%= form.submit "Update Ministry", class: "bg-blue-500 text-white px-4 py-2 rounded-lg" %>
+    </div>
+<% end %>
+
+
