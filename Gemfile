@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.3.3"
+ruby "3.3.4"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
@@ -37,7 +37,7 @@ gem "stimulus-rails"
 
 
 gem 'net-imap', require: false
-gem 'net-pop', require: false
+gem "net-pop", require: false
 gem 'net-smtp', require: false
 
 # Use Redis adapter to run Action Cable in production
