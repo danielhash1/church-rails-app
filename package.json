@@ -6,13 +6,12 @@
   "author": "Daniel Hash <hashdan542@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@rails/webpacker": "5.4.4",
-    "webpack-cli": "^5.1.4",
-    "babel-loader": "^9.2.1"
+    "@rails/webpacker": "5.4.4"
   },
   "devDependencies": {
     "babel-loader": "^9.2.1",
     "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.0.0"
   }
 }
