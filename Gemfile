@@ -1,7 +1,8 @@
 source "https://rubygems.org"
 
 ruby "3.3.3"
-
+# Build JSON APIs with ease [https://github.com/rails/jbuilder]
+gem "jbuilder"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.4"
 
@@ -33,11 +34,11 @@ gem "turbo-rails"
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 
-# Build JSON APIs with ease [https://github.com/rails/jbuilder]
-gem "jbuilder"
 
-gem 'net-pop', '>= 0.1.2'
-gem 'net-protocol', '~> 0.1' # Adjust the version if needed
+
+gem 'net-imap', require: false
+gem 'net-pop', require: false
+gem 'net-smtp', require: false
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"

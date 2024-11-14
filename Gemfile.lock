@@ -328,8 +328,9 @@ DEPENDENCIES
   dotenv-rails
   importmap-rails
   jbuilder
-  net-pop (>= 0.1.2)
-  net-protocol (~> 0.1)
+  net-imap
+  net-pop
+  net-smtp
   pg
   psych
   puma (>= 5.0)
